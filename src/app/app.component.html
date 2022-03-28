@@ -1,0 +1,84 @@
+<app-header></app-header>
+<br />
+<br />
+
+<button (click)="getClick('mello')">Click Me</button>
+
+<br />
+<br />
+
+<br />
+<br />
+
+<h2>text box value</h2>
+<input type="text" #box />
+<button (click)="getValue(box.value)">Get Value</button>
+<br />
+<h3>{{ currentValue }}</h3>
+
+<h2 style="color: red">property binding</h2>
+<input type="text" [disabled]="disabledBox" [value]="name" />
+<button (click)="enabledBox()">Enabled TextBox</button>
+
+<br />
+<br />
+
+<h2>Condition</h2>
+<table border="1">
+  <tr>
+    <td>name</td>
+    <td>age</td>
+  </tr>
+  <tr *ngFor="let item of data">
+    <td>{{ item.name }}</td>
+    <td>{{ item.age }}</td>
+  </tr>
+</table>
+
+<h2>Simple form</h2>
+<form #simpleForm="ngForm" (ngSubmit)="getSubmit($any(simpleForm).value)">
+  <label for="">username</label>
+  <br />
+  <input type="text" ngModel name="email" />
+  <br />
+  <label for="">password</label>
+  <br />
+  <input type="password" ngModel name="password" />
+  <br />
+  <br />
+  <i class="fas fa-home"></i>
+  <button class="btn btn-primary">Submit</button>
+</form>
+
+<br />
+<br />
+
+<p *ngFor="let alert of alerts">
+  <ngb-alert [type]="alert.type" (closed)="close(alert)">{{
+    alert.message
+  }}</ngb-alert>
+</p>
+<p>
+  <button type="button" class="btn btn-primary" (click)="reset()">Reset</button>
+</p>
+
+<p>exemple button material</p>
+<button mat-raised-button color="primary">MatButton</button>
+
+<br />
+<br />
+
+<button
+  mat-fab
+  color="primary"
+  aria-label="Example icon button with a delete icon"
+>
+  <mat-icon>delete</mat-icon>
+</button>
+
+<br />
+<br />
+
+<app-users [hero]="test"></app-users>
+
+<app-footer></app-footer>
